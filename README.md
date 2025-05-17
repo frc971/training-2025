@@ -1,2 +1,3 @@
 # training-2025
-Software training material for the 2025 offseason
+
+## All training material is located in the [wiki](https://github.com/frc971/training-2025/wiki)
