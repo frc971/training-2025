@@ -10,7 +10,7 @@ You'll get hands-on practice with command factories, method chaining, default be
 You've been given a WPILib template project that includes:
 
 - A `Indexer` subsystem in `subsystems/Indexer.java` (partially complete)
-- A `RobotContainer.java` with a controller instance (`driverController`) ready to use
+- A `RobotContainer.java` with a controller instance (`joystick`) ready to use
 
 ## Your Mission
 
