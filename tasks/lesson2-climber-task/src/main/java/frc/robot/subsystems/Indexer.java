@@ -10,9 +10,7 @@ public class Indexer extends SubsystemBase {
   // TODO: Add indexing state variable here
 
   /** Creates a new Indexer subsystem. */
-  public Indexer() {
-    // TODO: Initialize state if needed
-  }
+  public Indexer() {}
 
   /** Starts the indexing process. */
   public void startIndexing() {
@@ -36,15 +34,14 @@ public class Indexer extends SubsystemBase {
 
   // TODO: Implement indexForSeconds() command factory
 
-  // TODO: Implement printStatusCommand() command factory
-
   @Override
   public void periodic() {
-    // This method will be called once per scheduler run
+    // This method will always be called once per scheduler run
+    System.out.println("Indexer is " + (isIndexing() ? "running" : "idle"));
   }
 
   @Override
   public void simulationPeriodic() {
-    // This method will be called once per scheduler run during simulation
+    // This method will always be called once per scheduler run during simulation
   }
 }

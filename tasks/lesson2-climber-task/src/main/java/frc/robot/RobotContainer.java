@@ -21,7 +21,7 @@ public class RobotContainer {
   }
 
   private void configureBindings() {
-    // TODO: Bind indexForSeconds(1.5) and printStatusCommand()
+    // TODO: Bind indexForSeconds(1.5) to joystick button 1
   }
 
   public Command getAutonomousCommand() {

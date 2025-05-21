@@ -1,9 +1,9 @@
 # Lesson 2: Intro to WPILib Indexer Task
 
 In this task, you'll define a configurable command for the `Indexer` subsystem.  
-You'll get hands-on practice with command factories, method chaining, default behavior, and parameterized command creation.
+You'll get hands-on practice with command factories, method chaining, and parameterized command creation.
 
-> Tip: An indexer, or transfer, is a mechanism that transfers game pieces, like balls or cubes, from one area of the robot to another.
+> Tip: An indexer, or transfer, is a mechanism that moves game pieces—like balls or cubes—from one part of the robot to another.
 
 ## Starter Setup
 
@@ -23,6 +23,9 @@ In `Indexer.java`:
   - `public void stopIndexing()`: set `indexing` to false
   - `public boolean isIndexing()`: return `indexing`
 
+> Note: The template already prints the indexer's status in `periodic()`.
+> You’ll see messages like "Indexer is running" or "Indexer is idle" when you test.
+
 ### 2. Create a parameterized command factory
 
 In `Indexer.java`, write a method `indexForSeconds(double seconds)`.
@@ -32,39 +35,26 @@ This should return a command that:
 - Waits `seconds` seconds
 - Stops indexing
 
-Use `Commands.runOnce`, `Commands.waitSeconds`, and `andThen(...)` to chain these steps.
-
 > "Parameterized" just means the method takes in a parameter (`seconds`)
 
-### 3. Create a default status command
+### 3. Hook it up in `RobotContainer.java`
 
-Also in `Indexer.java`, write a method: `printStatusCommand()`.
+- Bind `indexForSeconds(1.5)` to button 1 on the joystick
 
-This should return a command that:
-- Prints `"Indexer is idle"` when the indexer is not indexing
-- Prints `"Indexer is running"` when the indexer is indexing
-
-### 4. Hook it up in `RobotContainer.java`
-
-- Bind `indexForSeconds(1.5)` to a button (e.g. Right Bumper)
-- Make `statusPrintCommand()` run continuously
-
-### 5. Run and test in simulation
+## 4. Run and test in simulation
 
 - Start your robot in simulation
-- Open Driver Station
-- Hold the Right Bumper
+- Press button 1 on the joystick
 - You should see:
-  - `"Indexer is idle"` printing repeatedly
-  - Then: `"Indexer is running"` for ~1.5 seconds
-  - Then: `"Indexer is idle"` resumes
+  - `"Indexer is running"` print for ~1.5 seconds
+  - Then it returns to `"Indexer is idle"`
 
 ## Why This Matters
 
 - You're writing **parameterized command factories**
 - You're chaining behaviors using WPILib methods
 - You're using **controller bindings**
-- You're practicing **status tracking and default behavior**
+- You're practicing **state tracking**
 
 ## Wrap-Up
 
