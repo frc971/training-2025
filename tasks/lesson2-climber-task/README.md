@@ -44,6 +44,7 @@ This should return a command that:
 ## 4. Run and test in simulation
 
 - Start your robot in simulation
+- Switch to teleoperated mode
 - Press button 1 on the joystick
 - You should see:
   - `"Indexer is running"` print for ~1.5 seconds
