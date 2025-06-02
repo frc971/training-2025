@@ -1,20 +1,23 @@
 package frc.robot.subsystems.shooter;
 
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
-import com.ctre.phoenix6.controls.DutyCycleOut; // Correct control mode for percent output
+import com.ctre.phoenix6.controls.DutyCycleOut;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
-// Real hardware implementation using TalonFX
+// Real hardware implementation for the Shooter using TalonFX motor
 public class ShooterIOTalonFX implements ShooterIO {
+  // Create a TalonFX motor object
   private final TalonFX motor;
-  private final DutyCycleOut percentOutputControl = new DutyCycleOut(0);
+
+  // Create a DutyCycleOut control mode object for percent output
+  private final DutyCycleOut dutyCycleOut = new DutyCycleOut(0);
 
   public ShooterIOTalonFX() {
-    // Assuming motor ID 1 for demonstration
+    // Initialize the motor with CAN ID 1
     motor = new TalonFX(1);
 
-    // Configure the motor
+    // Configure the motor with brake neutral mode
     var config = new TalonFXConfiguration();
     config.MotorOutput.NeutralMode = NeutralModeValue.Brake;
     motor.getConfigurator().apply(config);
@@ -22,16 +25,15 @@ public class ShooterIOTalonFX implements ShooterIO {
 
   @Override
   public void updateInputs(ShooterIOInputs inputs) {
-    // Get motor velocity (often in ticks per 100ms or rotations per second,
-    // depending on configuration. For simplicity, we'll assume a direct relation to RPM)
-    // In a real robot, you'd convert this to actual RPM.
-    double rawVelocity = motor.getVelocity().getValueAsDouble(); // Example: rotations per second
-    // A simple conversion, assuming 60 rotations/second = 3600 RPM
-    inputs.motorRPM = rawVelocity * 60.0;
+    // TODO: Read the motor’s velocity (rotations per second) as a double using
+    // motor.getVelocity().getValueAsDouble()
+
+    // TODO: Save the RPM to inputs.motorRPM (convert from rotations per second)
   }
 
   @Override
   public void setMotorPercentOutput(double percent) {
-    motor.setControl(percentOutputControl.withOutput(percent));
+    // TODO: Use motor.setControl and the dutyCycleOut variable to set the motor’s percent output
+    // Tip: Search up documentation for DutyCycleOut methods
   }
 }

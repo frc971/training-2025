@@ -18,6 +18,7 @@ In `ShooterIO.java`:
 
 - This template defines the `ShooterIO` interface and the `ShooterIOInputs` class.
 - **No TODOs here; this file is complete with the template.**
+  - However, please read this class to see what methods need to be implemented for `ShooterIOSim` and `ShooterIOTalonFX`
 
 ### `ShooterIOTalonFX`
 
@@ -25,7 +26,6 @@ In `ShooterIOTalonFX.java`:
 
 - This template provides the basic `TalonFX` setup.
 - Fill in the `// TODO:` sections to get the motor's velocity and set its output.
-- 
 
 ### `ShooterIOSim`
 
@@ -40,32 +40,31 @@ In `ShooterIOSim.java`:
 
 In `Shooter.java`:
 
--   This template provides the basic `SubsystemBase` structure.
--   Fill in the `// TODO:` sections to:
-    -   Add fields for `ShooterIO` and `ShooterIOInputs`.
-    -   Create the constructor.
-    -   Call `updateInputs` in `periodic()`.
-    -   Add public methods (`spin`, `stop`, `getCurrentRPM`).
+- This template provides the basic `SubsystemBase` structure.
+- Fill in the `// TODO:` sections to:
+  - Add fields for `ShooterIO` and `ShooterIOInputs`.
+  - Create the constructor.
+  - Call `updateInputs` in `periodic()`.
+  - Add public methods (`spin`, `stop`, `getCurrentRPM`).
 
 ### 6. Integrate in `RobotContainer.java`
 
 In `RobotContainer.java`:
 
--   Declare your `Shooter` subsystem.
--   Instantiate it, showing both options (comment out one):
-    ```java
-    // For real robot:
-    // public final Shooter shooter = new Shooter(new ShooterIOTalonFX());
-    // For simulation:
-    public final Shooter shooter = new Shooter(new ShooterIOSim());
-    ```
--   Optional: Bind a button to a command that uses your `shooter` (e.g., `new RunCommand(() -> shooter.spin(0.5), shooter)`). Remember to add necessary imports.
+- Declare your `Shooter` subsystem.
+- Instantiate it
+  ```java
+  // Automatically use the correct IO implementation based on whether it's a simulation or not
+  shooter = new Shooter(RobotBase.isReal() ? new ShooterIOTalonFX() : new ShooterIOSim());
+  ```
+- Bind a button to a command that uses your `shooter`.
+- Remember to add necessary imports.
 
 ## Test Your Code
 
--   Start your robot in simulation.
--   If you created a test command, activate it (e.g., press the joystick button).
--   Observe that `getCurrentRPM()` reports a non-zero value when active, and zero when stopped (add a `System.out.println` in `Shooter.java`'s `periodic()` for easy debugging).
+- Start your robot in simulation.
+- If you created a test command, activate it (e.g., press the joystick button).
+- Observe that `getCurrentRPM()` reports a non-zero value when active, and zero when stopped (add a `System.out.println` in `Shooter.java`'s `periodic()` for easy debugging).
 
 ## Why This Matters
 

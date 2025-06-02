@@ -1,4 +1,3 @@
-// ShooterIO.java Template - Copy this into your file
 package frc.robot.subsystems.shooter;
 
 // Interface defining the contract for Shooter hardware/simulation implementations

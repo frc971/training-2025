@@ -1,13 +1,11 @@
-// Shooter.java Template - Copy this into your file
 package frc.robot.subsystems.shooter;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 // Main Shooter subsystem logic
 public class Shooter extends SubsystemBase {
-  // TODO: Add a private field for your ShooterIO instance (e.g., private final ShooterIO io;)
-  // TODO: Add a private field for your ShooterIOInputs instance, initialized (e.g., private final
-  // ShooterIOInputs inputs = new ShooterIOInputs(0.0);)
+  // TODO: Add a private field for your ShooterIO instance
+  // TODO: Add a private field for your ShooterIOInputs instance and initialize it
 
   // TODO: Create the constructor that takes a ShooterIO instance as a parameter
   // public Shooter(ShooterIO io) { ... }
