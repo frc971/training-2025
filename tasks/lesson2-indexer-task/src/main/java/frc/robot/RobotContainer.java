@@ -21,8 +21,7 @@ public class RobotContainer {
   }
 
   private void configureBindings() {
-    // Bind button 1 on joystick to run indexForSeconds(1.5)
-    joystick.button(1).onTrue(indexer.indexForSeconds(1.5));
+    // TODO: Bind indexForSeconds(1.5) to joystick button 1
   }
 
   public Command getAutonomousCommand() {
