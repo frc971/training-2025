@@ -26,6 +26,7 @@ public class ElevatorController {
         elevator.moveDown();
       }
     }
+
     System.out.printf("Arrived at floor %d.%n", elevator.getCurrentFloor());
   }
 }
