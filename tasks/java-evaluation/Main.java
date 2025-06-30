@@ -8,10 +8,10 @@ public class Main {
     Scanner scanner = new Scanner(System.in);
 
     while (true) {
-      System.out.print("Request floor: ");
+      System.out.printf("%nRequest floor: ");
       String input = scanner.next();
 
-      if (input.equals("q")) break;
+      if (input.equals("quit") || input.equals("q")) break;
 
       try {
         int requestedFloor = Integer.parseInt(input);
