@@ -45,8 +45,22 @@ Break your code into three classes:
 
 ```
 Elevator is at floor 1.
+
+Request floor: 3
 Requested to go to floor 3.
-Moving up... now at floor 2
-Moving up... now at floor 3
+Moving up... now at floor 2.
+Moving up... now at floor 3.
 Arrived at floor 3.
+
+Request floor: 8
+Requested to go to floor 8.
+Floor 8 is not a valid floor.
+
+Request floor: 1
+Requested to go to floor 1.
+Moving down... now at floor 2.
+Moving down... now at floor 1.
+Arrived at floor 1.
+
+Request floor: quit
 ```
