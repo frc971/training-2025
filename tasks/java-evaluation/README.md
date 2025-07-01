@@ -66,7 +66,11 @@ Request floor: quit
 
 ## Testing Instructions
 
-To test your code once completed, compile and run the `EvaluationTest` class using the following commands in your terminal:
+**Before submitting** your solution, you should test your code. 
+
+First, download [EvaluationTest.java](https://raw.githubusercontent.com/frc971/training-2025/refs/heads/main/tasks/java-evaluation/EvaluationTest.java?token=GHSAT0AAAAAADGP5OAHS7XKDUCVQPBODVCW2DDODJQ) by following the link and using ctrl+s or cmd+s.
+
+Then, move it to the same folder as your code. Compile and run `EvaluationTest` using the following commands in your terminal:
 
 ```sh
 javac *.java && java EvaluationTest
