@@ -8,7 +8,7 @@ public class Main {
     Scanner scanner = new Scanner(System.in);
 
     while (true) {
-      System.out.printf("%nRequest floor: ");
+      System.out.print("\nRequest floor: ");
       String input = scanner.next();
 
       if (input.equals("quit") || input.equals("q")) break;

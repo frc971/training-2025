@@ -8,25 +8,25 @@ public class ElevatorController {
     this.MIN_FLOOR = minFloor;
     this.MAX_FLOOR = maxFloor;
 
-    System.out.printf("Elevator is at floor %d.%n", elevator.getCurrentFloor());
+    System.out.println("Elevator instantiated at floor " + elevator.getCurrentFloor());
   }
 
   public void goToFloor(int goalFloor) {
-    System.out.printf("Requested to go to floor %d.%n", goalFloor);
-
     if (goalFloor < MIN_FLOOR || goalFloor > MAX_FLOOR) {
-      System.out.printf("Floor %d is not a valid floor.%n", goalFloor);
+      System.out.println("Floor " + goalFloor + " is not a valid floor");
       return;
     }
 
     while (elevator.getCurrentFloor() != goalFloor) {
       if (goalFloor > elevator.getCurrentFloor()) {
         elevator.moveUp();
+        System.out.println("Moving up... now at floor " + elevator.getCurrentFloor());
       } else {
         elevator.moveDown();
+        System.out.println("Moving down... now at floor " + elevator.getCurrentFloor());
       }
     }
 
-    System.out.printf("Arrived at floor %d.%n", elevator.getCurrentFloor());
+    System.out.println("Arrived at floor " + elevator.getCurrentFloor());
   }
 }

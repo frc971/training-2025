@@ -2,6 +2,8 @@
 
 Passing this Java evaluation task is a prerequisite to joining 971 software or software training.
 
+**For the purposes of this task, you may not use AI tools**
+
 ## Goal
 
 Create a small Java program that simulates a simple elevator system using multiple classes.
@@ -26,41 +28,48 @@ Break your code into three classes:
 
 ### `Elevator`
 
-- Tracks current floor
+- Only tracks current floor
 - Can only move one floor at a time (no skipping floors)
-- Methods: `moveUp()`, `moveDown()`, `getCurrentFloor()`, etc.
+- Methods: `moveUp()`, `moveDown()`, `getCurrentFloor()`.
 
 ### `ElevatorController`
 
 - Given a target floor, tells the elevator how to move
-- Handles logic like "go to floor 2"
-- Handles output
+- Handles printing elevator status to terminal- **the output format shown below is required**
+- Prevents elevator from going to an invalid floor
 
 ### `Main`
 
 - The entry point
 - Sets up and runs the program loop
 
-## Example Output
+## Required Output
 
 ```
-Elevator is at floor 1.
+Elevator instantiated at floor 1
 
 Request floor: 3
-Requested to go to floor 3.
-Moving up... now at floor 2.
-Moving up... now at floor 3.
-Arrived at floor 3.
+Moving up... now at floor 2
+Moving up... now at floor 3
+Arrived at floor 3
 
 Request floor: 8
-Requested to go to floor 8.
-Floor 8 is not a valid floor.
+Floor 8 is not a valid floor
 
 Request floor: 1
-Requested to go to floor 1.
-Moving down... now at floor 2.
-Moving down... now at floor 1.
-Arrived at floor 1.
+Moving down... now at floor 2
+Moving down... now at floor 1
+Arrived at floor 1
 
 Request floor: quit
 ```
+
+## Testing Instructions
+
+To test your code once completed, compile and run the `EvaluationTest` class using the following commands in your terminal:
+
+```sh
+javac *.java && java EvaluationTest
+```
+
+**Important:** You are not allowed to modify the `EvaluationTest.java` file. All tests must pass with the provided test file.

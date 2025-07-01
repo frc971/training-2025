@@ -7,12 +7,10 @@ public class Elevator {
 
   public void moveUp() {
     floor++;
-    System.out.printf("Moving up... now at floor %d.%n", floor);
   }
 
   public void moveDown() {
     floor--;
-    System.out.printf("Moving down... now at floor %d.%n", floor);
   }
 
   public int getCurrentFloor() {
