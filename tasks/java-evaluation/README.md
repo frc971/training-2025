@@ -30,13 +30,21 @@ Break your code into three classes:
 
 - Only tracks current floor
 - Can only move one floor at a time (no skipping floors)
-- Methods: `moveUp()`, `moveDown()`, `getCurrentFloor()`.
+- Recommended Methods: `moveUp()`, `moveDown()`, `getCurrentFloor()`.
+- Constructor must take only one parameter: the initial floor.
+  ```java
+  Elevator elevator = new Elevator(1);
+  ```
 
 ### `ElevatorController`
 
 - Given a target floor, tells the elevator how to move
 - Handles printing elevator status to terminal- **the output format shown below is required**
 - Prevents elevator from going to an invalid floor
+- Constructor must take three parameters: the Elevator instance, the minimum floor, and the maximum floor (in that order!).
+  ```java
+  ElevatorController controller = new ElevatorController(elevator, 1, 5);
+  ```
 
 ### `Main`
 
