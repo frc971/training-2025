@@ -5,21 +5,25 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj2.command.RunCommand;
+
 
 public class Indexer extends SubsystemBase {
   // TODO: Add indexing state variable here
-
+  boolean indexing;
   /** Creates a new Indexer subsystem. */
   public Indexer() {}
 
   /** Starts the indexing process. */
   public void startIndexing() {
     // TODO: Set indexing state to true
+    indexing = true;
   }
 
   /** Stops the indexing process. */
   public void stopIndexing() {
     // TODO: Set indexing state to false
+    indexing = false;
   }
 
   /**
@@ -29,15 +33,28 @@ public class Indexer extends SubsystemBase {
    */
   public boolean isIndexing() {
     // TODO: Return indexing state
-    return false;
+    return indexing;
   }
 
   // TODO: Implement indexForSeconds() command factory
+  public RunCommand indexForSeconds(double seconds){
+    System.out.println("in indexForSeconds");
+    return new RunCommand(() -> {startIndexing();
+    try{
+        wait(Math.round(seconds * 1000));
+    }
+    catch (InterruptedException e){
+      e.printStackTrace();
+      System.exit(0);
+    }
+    stopIndexing();});
+  }
+    
 
   @Override
   public void periodic() {
     // This method will always be called once per scheduler run
-    System.out.println("Indexer is " + (isIndexing() ? "running" : "idle"));
+    // System.out.println("Indexer is " + (isIndexing() ? "running" : "idle"));
   }
 
   @Override
