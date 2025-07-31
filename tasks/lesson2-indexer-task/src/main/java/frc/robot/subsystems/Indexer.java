@@ -6,6 +6,8 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj2.command.RunCommand;
+import edu.wpi.first.wpilibj2.command.Commands;
+import edu.wpi.first.wpilibj2.command.Command;
 
 
 public class Indexer extends SubsystemBase {
@@ -37,24 +39,17 @@ public class Indexer extends SubsystemBase {
   }
 
   // TODO: Implement indexForSeconds() command factory
-  public RunCommand indexForSeconds(double seconds){
-    System.out.println("in indexForSeconds");
-    return new RunCommand(() -> {startIndexing();
-    try{
-        wait(Math.round(seconds * 1000));
-    }
-    catch (InterruptedException e){
-      e.printStackTrace();
-      System.exit(0);
-    }
-    stopIndexing();});
+  public Command indexForSeconds(double seconds){
+    return Commands.runOnce(this::startIndexing)
+    .andThen(Commands.waitSeconds(seconds))
+    .andThen(Commands.runOnce(this::stopIndexing));
   }
     
 
   @Override
   public void periodic() {
     // This method will always be called once per scheduler run
-    // System.out.println("Indexer is " + (isIndexing() ? "running" : "idle"));
+    System.out.println("Indexer is " + (isIndexing() ? "running" : "idle"));
   }
 
   @Override

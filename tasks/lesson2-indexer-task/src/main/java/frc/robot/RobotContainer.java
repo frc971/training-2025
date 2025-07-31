@@ -5,6 +5,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
 import frc.robot.subsystems.Indexer;
@@ -24,7 +25,7 @@ public class RobotContainer {
 
   private void configureBindings() {
     // TODO: Bind indexForSeconds(1.5) to joystick button 1
-    // joystick.button(1).onTrue(() -> {System.out.println("hi");});
+    joystick.button(1).onTrue(indexer.indexForSeconds(1.5));
   }
 
   public Command getAutonomousCommand() {
