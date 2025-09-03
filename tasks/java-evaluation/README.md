@@ -85,3 +85,9 @@ javac *.java && java EvaluationTest
 ```
 
 **Important:** You are not allowed to modify the `EvaluationTest.java` file. All tests must pass with the provided test file.
+
+## Submitting
+
+Zip all of your Java code and submit the .zip file to this google form.
+
+If you already know git, you should also make a pull request for your solution. If not, wait until you finish [Lesson 1: Git and GitHub]([url](https://github.com/frc971/training-2025/wiki/Lesson-1:-Intro-to-Git-&-GitHub)).
