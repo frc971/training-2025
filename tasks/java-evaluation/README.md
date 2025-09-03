@@ -88,6 +88,6 @@ javac *.java && java EvaluationTest
 
 ## Submitting
 
-Zip all of your Java code and submit the .zip file to this google form.
+Zip all of your Java code and submit the .zip file to this [Google Form]([url](https://docs.google.com/forms/d/e/1FAIpQLSfSJd_nU7-JBHtFHVfRChaB__2itP_dObZsmqgIaN7TRPo2oA/viewform)).
 
 If you already know git, you should also make a pull request for your solution. If not, wait until you finish [Lesson 1: Git and GitHub]([url](https://github.com/frc971/training-2025/wiki/Lesson-1:-Intro-to-Git-&-GitHub)).
