@@ -18,9 +18,6 @@ public class EvaluationTest {
   public static final String ANSI_RESET = "\u001B[0m";
   public static final boolean SUPPORTS_COLOR = supportsColor();
 
-  // Get system line separator
-  private static final String LINE_SEP = System.lineSeparator();
-
   public static void main(String[] args) {
     // Save original System.out
     PrintStream originalOut = System.out;
@@ -32,54 +29,43 @@ public class EvaluationTest {
 
     // Test initial state
     check(elevator.getCurrentFloor() == 1, "Initial floor should be 1");
-    String expectedInit = "Elevator instantiated at floor 1" + LINE_SEP;
-    checkContains(
-        normalizeLineEndings(outContent.toString()), expectedInit, "Missing instantiation output");
+    String expectedInit = "Elevator instantiated at floor 1\n";
+    checkContains(normalize(outContent.toString()), expectedInit, "Missing instantiation output");
 
     // Test valid move up
     outContent.reset();
     controller.goToFloor(3);
     String expectedMoveUp =
-        "Moving up... now at floor 2"
-            + LINE_SEP
-            + "Moving up... now at floor 3"
-            + LINE_SEP
-            + "Arrived at floor 3"
-            + LINE_SEP;
+        "Moving up... now at floor 2\nMoving up... now at floor 3\nArrived at floor 3\n";
     check(elevator.getCurrentFloor() == 3, "Should be at floor 3");
     checkEquals(
-        normalizeLineEndings(outContent.toString()),
-        expectedMoveUp,
-        "Unexpected output for moving up");
+        normalize(outContent.toString()), expectedMoveUp, "Unexpected output for moving up");
 
     // Test valid move down
     outContent.reset();
     controller.goToFloor(2);
-    String expectedMoveDown =
-        "Moving down... now at floor 2" + LINE_SEP + "Arrived at floor 2" + LINE_SEP;
+    String expectedMoveDown = "Moving down... now at floor 2\nArrived at floor 2\n";
     check(elevator.getCurrentFloor() == 2, "Should be at floor 2");
     checkEquals(
-        normalizeLineEndings(outContent.toString()),
-        expectedMoveDown,
-        "Unexpected output for moving down");
+        normalize(outContent.toString()), expectedMoveDown, "Unexpected output for moving down");
 
     // Test invalid move (below min)
     outContent.reset();
     controller.goToFloor(0);
-    String expectedInvalidLow = "Floor 0 is not a valid floor" + LINE_SEP;
+    String expectedInvalidLow = "Floor 0 is not a valid floor\n";
     check(elevator.getCurrentFloor() == 2, "Should remain at floor 2");
     checkEquals(
-        normalizeLineEndings(outContent.toString()),
+        normalize(outContent.toString()),
         expectedInvalidLow,
         "Unexpected output for invalid low floor");
 
     // Test invalid move (above max)
     outContent.reset();
     controller.goToFloor(6);
-    String expectedInvalidHigh = "Floor 6 is not a valid floor" + LINE_SEP;
+    String expectedInvalidHigh = "Floor 6 is not a valid floor\n";
     check(elevator.getCurrentFloor() == 2, "Should remain at floor 2");
     checkEquals(
-        normalizeLineEndings(outContent.toString()),
+        normalize(outContent.toString()),
         expectedInvalidHigh,
         "Unexpected output for invalid high floor");
 
@@ -87,17 +73,13 @@ public class EvaluationTest {
     outContent.reset();
     controller.goToFloor(5);
     String expectedToMax =
-        "Moving up... now at floor 3"
-            + LINE_SEP
-            + "Moving up... now at floor 4"
-            + LINE_SEP
-            + "Moving up... now at floor 5"
-            + LINE_SEP
-            + "Arrived at floor 5"
-            + LINE_SEP;
+        "Moving up... now at floor 3\n"
+            + "Moving up... now at floor 4\n"
+            + "Moving up... now at floor 5\n"
+            + "Arrived at floor 5\n";
     check(elevator.getCurrentFloor() == 5, "Should be at floor 5");
     checkEquals(
-        normalizeLineEndings(outContent.toString()),
+        normalize(outContent.toString()),
         expectedToMax,
         "Unexpected output for moving to max floor");
 
@@ -105,19 +87,14 @@ public class EvaluationTest {
     outContent.reset();
     controller.goToFloor(1);
     String expectedToMin =
-        "Moving down... now at floor 4"
-            + LINE_SEP
-            + "Moving down... now at floor 3"
-            + LINE_SEP
-            + "Moving down... now at floor 2"
-            + LINE_SEP
-            + "Moving down... now at floor 1"
-            + LINE_SEP
-            + "Arrived at floor 1"
-            + LINE_SEP;
+        "Moving down... now at floor 4\n"
+            + "Moving down... now at floor 3\n"
+            + "Moving down... now at floor 2\n"
+            + "Moving down... now at floor 1\n"
+            + "Arrived at floor 1\n";
     check(elevator.getCurrentFloor() == 1, "Should be at floor 1");
     checkEquals(
-        normalizeLineEndings(outContent.toString()),
+        normalize(outContent.toString()),
         expectedToMin,
         "Unexpected output for moving to min floor");
 
@@ -126,8 +103,8 @@ public class EvaluationTest {
     printlnColor(ANSI_GREEN, "All tests passed.");
   }
 
-  // Normalize line endings for cross-platform compatibility
-  private static String normalizeLineEndings(String text) {
+  // Normalize line endings to \n
+  private static String normalize(String text) {
     return text.replace("\r\n", "\n").replace("\r", "\n");
   }
 
