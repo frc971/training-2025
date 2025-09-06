@@ -76,7 +76,7 @@ Request floor: quit
 
 **Before submitting** your solution, you should test your code. 
 
-First, download [EvaluationTest.java](https://raw.githubusercontent.com/frc971/training-2025/refs/heads/main/tasks/java-evaluation/EvaluationTest.java?token=GHSAT0AAAAAADGP5OAHS7XKDUCVQPBODVCW2DDODJQ) by following the link and using ctrl+s or cmd+s.
+First, download [EvaluationTest.java](https://raw.githubusercontent.com/frc971/training-2025/refs/heads/main/tasks/java-evaluation/EvaluationTest.java) by following the link and using ctrl+s or cmd+s.
 
 Then, move it to the same folder as your code. Compile and run `EvaluationTest` using the following commands in your terminal:
 
