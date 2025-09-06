@@ -30,13 +30,21 @@ Break your code into three classes:
 
 - Only tracks current floor
 - Can only move one floor at a time (no skipping floors)
-- Methods: `moveUp()`, `moveDown()`, `getCurrentFloor()`.
+- Recommended Methods: `moveUp()`, `moveDown()`, `getCurrentFloor()`.
+- Constructor must take only one parameter: the initial floor.
+  ```java
+  Elevator elevator = new Elevator(1);
+  ```
 
 ### `ElevatorController`
 
 - Given a target floor, tells the elevator how to move
 - Handles printing elevator status to terminal- **the output format shown below is required**
 - Prevents elevator from going to an invalid floor
+- Constructor must take three parameters: the Elevator instance, the minimum floor, and the maximum floor (in that order!).
+  ```java
+  ElevatorController controller = new ElevatorController(elevator, 1, 5);
+  ```
 
 ### `Main`
 
@@ -66,10 +74,20 @@ Request floor: quit
 
 ## Testing Instructions
 
-To test your code once completed, compile and run the `EvaluationTest` class using the following commands in your terminal:
+**Before submitting** your solution, you should test your code. 
+
+First, download [EvaluationTest.java](https://raw.githubusercontent.com/frc971/training-2025/refs/heads/main/tasks/java-evaluation/EvaluationTest.java) by following the link and using ctrl+s or cmd+s.
+
+Then, move it to the same folder as your code. Compile and run `EvaluationTest` using the following commands in your terminal:
 
 ```sh
 javac *.java && java EvaluationTest
 ```
 
 **Important:** You are not allowed to modify the `EvaluationTest.java` file. All tests must pass with the provided test file.
+
+## Submitting
+
+Zip all of your Java code and submit the .zip file to this [Google Form]([url](https://docs.google.com/forms/d/e/1FAIpQLSfSJd_nU7-JBHtFHVfRChaB__2itP_dObZsmqgIaN7TRPo2oA/viewform)).
+
+If you already know git, you should also make a pull request for your solution. If not, wait until you finish [Lesson 1: Git and GitHub]([url](https://github.com/frc971/training-2025/wiki/Lesson-1:-Intro-to-Git-&-GitHub)).

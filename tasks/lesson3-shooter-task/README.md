@@ -1,4 +1,4 @@
-# Lesson 3: Intro to Subsystems (Shooter Task)
+# Lesson 3: Subsystems Shooter Task
 
 In this task, you'll build a basic motor subsystem using the SubsystemIO pattern for a Shooter mechanism.
 You'll get hands-on practice with subsystem organization, hardware abstraction, and basic motor control.
@@ -47,7 +47,7 @@ In `Shooter.java`:
   - Call `updateInputs` in `periodic()`.
   - Add public methods (`spin`, `stop`, `getCurrentRPM`).
 
-### 6. Integrate in `RobotContainer.java`
+### `RobotContainer.java`
 
 In `RobotContainer.java`:
 
