@@ -1,6 +1,6 @@
 # Lesson 2: Intro to WPILib Indexer Task
 
-In this task, you'll define a configurable command for the `Indexer` subsystem.  
+In this task, you'll define a configurable command for the `Indexer` subsystem.
 You'll get hands-on practice with command factories, method chaining, and parameterized command creation.
 
 > Tip: An indexer, or transfer, is a mechanism that moves game pieces—like balls or cubes—from one part of the robot to another.
@@ -17,6 +17,7 @@ You've been given a WPILib template project that includes:
 ### 1. Add indexer state tracking
 
 In `Indexer.java`:
+
 - Add a boolean field `indexing`
 - Create methods:
   - `public void startIndexing()`: set `indexing` to true
@@ -31,6 +32,7 @@ In `Indexer.java`:
 In `Indexer.java`, write a method `indexForSeconds(double seconds)`.
 
 This should return a command that:
+
 - Starts indexing
 - Waits `seconds` seconds
 - Stops indexing
@@ -43,7 +45,7 @@ This should return a command that:
 
 ## 4. Run and test in simulation
 
-- Start your robot in simulation
+- Start your robot in simulation. See the [WPILib Simulator](https://github.com/frc971/training-2025/wiki/WPILib-Simulator) page for help with simulation.
 - Switch to teleoperated mode
 - Press button 1 on the joystick
 - You should see:
