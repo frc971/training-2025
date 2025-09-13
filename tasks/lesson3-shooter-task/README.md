@@ -1,4 +1,6 @@
 # Lesson 3: Subsystems Shooter Task
+# DO NOT CONTINUE IN THIS LESSON WITHOUT READING THE [WIKI](https://github.com/frc971/training-2025/wiki/Lesson-3:-Subsystems)
+
 
 In this task, you'll build a basic motor subsystem using the SubsystemIO pattern for a Shooter mechanism.
 You'll get hands-on practice with subsystem organization, hardware abstraction, and basic motor control.
