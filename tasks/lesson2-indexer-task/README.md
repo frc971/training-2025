@@ -1,5 +1,6 @@
 # Lesson 2: Intro to WPILib Indexer Task
 
+# DO NOT CONTINUE IN THIS LESSON WITHOUT READING THE [WIKI](https://github.com/frc971/training-2025/wiki/Lesson-2:-Intro-to-WPILib)
 In this task, you'll define a configurable command for the `Indexer` subsystem.
 You'll get hands-on practice with command factories, method chaining, and parameterized command creation.
 
