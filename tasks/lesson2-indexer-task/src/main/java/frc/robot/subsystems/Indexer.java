@@ -4,10 +4,12 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Indexer extends SubsystemBase {
   // TODO: Add indexing state variable here
+  public boolean indexing;
 
   /** Creates a new Indexer subsystem. */
   public Indexer() {}
@@ -15,11 +17,13 @@ public class Indexer extends SubsystemBase {
   /** Starts the indexing process. */
   public void startIndexing() {
     // TODO: Set indexing state to true
+    indexing = true;
   }
 
   /** Stops the indexing process. */
   public void stopIndexing() {
     // TODO: Set indexing state to false
+    indexing = false;
   }
 
   /**
@@ -29,10 +33,22 @@ public class Indexer extends SubsystemBase {
    */
   public boolean isIndexing() {
     // TODO: Return indexing state
-    return false;
+    return indexing;
   }
 
   // TODO: Implement indexForSeconds() command factory
+  public Command indexForSeconds(double seconds){
+    int myInt = (int)seconds*1000;
+    startIndexing();
+    try {
+      Thread.sleep(myInt);
+    } catch (InterruptedException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+    stopIndexing();
+        return null;
+  }
 
   @Override
   public void periodic() {
