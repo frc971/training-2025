@@ -26,14 +26,16 @@ public class ShooterIOTalonFX implements ShooterIO {
   @Override
   public void updateInputs(ShooterIOInputs inputs) {
     // TODO: Read the motor’s velocity (rotations per second) as a double using
-    // motor.getVelocity().getValueAsDouble()
+    double motorVelocityRPM = motor.getVelocity().getValueAsDouble();
 
     // TODO: Save the RPM to inputs.motorRPM (convert from rotations per second)
+    inputs.motorRPM = motorVelocityRPM * 60.0;
   }
 
   @Override
   public void setMotorPercentOutput(double percent) {
     // TODO: Use motor.setControl and the dutyCycleOut variable to set the motor’s percent output
+    motor.setControl(dutyCycleOut.withOutput(percent));
     // Tip: Search up documentation for DutyCycleOut methods
   }
 }
