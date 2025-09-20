@@ -41,7 +41,7 @@ This should return a command that:
 
 - Bind `indexForSeconds(1.5)` to button 1 on the joystick
 
-## 4. Run and test in simulation
+## 4. Run and test in simu8lation
 
 - Start your robot in simulation
 - Switch to teleoperated mode
