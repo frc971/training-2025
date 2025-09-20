@@ -1,5 +1,7 @@
 # Lesson 3: Subsystems Shooter Task
 
+# IMPORTANT: DO NOT ATTEMPT TO SOLVE THIS TASK WITHOUT READING THE [LESSON ON THE WIKI](https://github.com/frc971/training-2025/wiki/Lesson-3:-Subsystems)
+
 In this task, you'll build a basic motor subsystem using the SubsystemIO pattern for a Shooter mechanism.
 You'll get hands-on practice with subsystem organization, hardware abstraction, and basic motor control.
 
@@ -33,7 +35,7 @@ In `ShooterIOSim.java`:
 
 - This template provides the class structure.
 - Fill in the `// TODO:` sections to simulate motor behavior
-  - Track a simulated percentage 
+  - Track a simulated percentage
   - Calculate RPM
 
 ### `Shooter`
@@ -62,7 +64,7 @@ In `RobotContainer.java`:
 
 ## Test Your Code
 
-- Start your robot in simulation.
+- Start your robot in simulation. See the [WPILib Simulator](https://github.com/frc971/training-2025/wiki/WPILib-Simulator) page for help with simulation.
 - If you created a test command, activate it (e.g., press the joystick button).
 - Observe that `getCurrentRPM()` reports a non-zero value when active, and zero when stopped (add a `System.out.println` in `Shooter.java`'s `periodic()` for easy debugging).
 

@@ -30,22 +30,24 @@ public class EvaluationTest {
     // Test initial state
     check(elevator.getCurrentFloor() == 1, "Initial floor should be 1");
     String expectedInit = "Elevator instantiated at floor 1\n";
-    checkContains(outContent.toString(), expectedInit, "Missing instantiation output");
+    checkContains(normalize(outContent.toString()), expectedInit, "Missing instantiation output");
 
     // Test valid move up
     outContent.reset();
     controller.goToFloor(3);
     String expectedMoveUp =
-        "Moving up... now at floor 2\n" + "Moving up... now at floor 3\n" + "Arrived at floor 3\n";
+        "Moving up... now at floor 2\nMoving up... now at floor 3\nArrived at floor 3\n";
     check(elevator.getCurrentFloor() == 3, "Should be at floor 3");
-    checkEquals(outContent.toString(), expectedMoveUp, "Unexpected output for moving up");
+    checkEquals(
+        normalize(outContent.toString()), expectedMoveUp, "Unexpected output for moving up");
 
     // Test valid move down
     outContent.reset();
     controller.goToFloor(2);
-    String expectedMoveDown = "Moving down... now at floor 2\n" + "Arrived at floor 2\n";
+    String expectedMoveDown = "Moving down... now at floor 2\nArrived at floor 2\n";
     check(elevator.getCurrentFloor() == 2, "Should be at floor 2");
-    checkEquals(outContent.toString(), expectedMoveDown, "Unexpected output for moving down");
+    checkEquals(
+        normalize(outContent.toString()), expectedMoveDown, "Unexpected output for moving down");
 
     // Test invalid move (below min)
     outContent.reset();
@@ -53,7 +55,9 @@ public class EvaluationTest {
     String expectedInvalidLow = "Floor 0 is not a valid floor\n";
     check(elevator.getCurrentFloor() == 2, "Should remain at floor 2");
     checkEquals(
-        outContent.toString(), expectedInvalidLow, "Unexpected output for invalid low floor");
+        normalize(outContent.toString()),
+        expectedInvalidLow,
+        "Unexpected output for invalid low floor");
 
     // Test invalid move (above max)
     outContent.reset();
@@ -61,7 +65,9 @@ public class EvaluationTest {
     String expectedInvalidHigh = "Floor 6 is not a valid floor\n";
     check(elevator.getCurrentFloor() == 2, "Should remain at floor 2");
     checkEquals(
-        outContent.toString(), expectedInvalidHigh, "Unexpected output for invalid high floor");
+        normalize(outContent.toString()),
+        expectedInvalidHigh,
+        "Unexpected output for invalid high floor");
 
     // Test move to max floor
     outContent.reset();
@@ -72,7 +78,10 @@ public class EvaluationTest {
             + "Moving up... now at floor 5\n"
             + "Arrived at floor 5\n";
     check(elevator.getCurrentFloor() == 5, "Should be at floor 5");
-    checkEquals(outContent.toString(), expectedToMax, "Unexpected output for moving to max floor");
+    checkEquals(
+        normalize(outContent.toString()),
+        expectedToMax,
+        "Unexpected output for moving to max floor");
 
     // Test move to min floor
     outContent.reset();
@@ -84,11 +93,19 @@ public class EvaluationTest {
             + "Moving down... now at floor 1\n"
             + "Arrived at floor 1\n";
     check(elevator.getCurrentFloor() == 1, "Should be at floor 1");
-    checkEquals(outContent.toString(), expectedToMin, "Unexpected output for moving to min floor");
+    checkEquals(
+        normalize(outContent.toString()),
+        expectedToMin,
+        "Unexpected output for moving to min floor");
 
     // Restore original System.out
     System.setOut(originalOut);
     printlnColor(ANSI_GREEN, "All tests passed.");
+  }
+
+  // Normalize line endings to \n
+  private static String normalize(String text) {
+    return text.replace("\r\n", "\n").replace("\r", "\n");
   }
 
   private static void check(boolean condition, String message) {
