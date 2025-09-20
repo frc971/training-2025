@@ -4,7 +4,9 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj2.command.Command;
 
 public class Indexer extends SubsystemBase {
   // TODO: Add indexing state variable here
@@ -35,17 +37,18 @@ public class Indexer extends SubsystemBase {
   }
 
   // TODO: Implement indexForSeconds() command factory
-  public void indexForSeconds(double seconds) {
-    this.startIndexing();
-    int iseconds = (int)seconds;
-    try {
-      Thread.sleep((long)(seconds * 1000));
-    } catch (InterruptedException e){
-      Thread.currentThread().interrupt();
-    }
-    this.stopIndexing();
+  
+  public Command indexForSeconds(double seconds) {
+    
+    return Commands.runOnce(this::startIndexing, this)
+        
+        .andThen(Commands.waitSeconds(1.5))
+        .andThen(Commands.runOnce(this::stopIndexing, this));
+    
+    
     
   }
+  
   @Override
   public void periodic() {
     // This method will always be called once per scheduler run
