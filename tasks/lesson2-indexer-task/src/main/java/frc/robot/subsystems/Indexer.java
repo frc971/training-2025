@@ -38,7 +38,8 @@ public class Indexer extends SubsystemBase {
 
   // TODO: Implement indexForSeconds() command factory
   public Command indexForSeconds(double seconds) {
-    return Commands.run(() -> startIndexing()).withTimeout(seconds).end(() -> stopIndexing());
+    // return Commands.runOnce(() -> startIndexing()).withTimeout(seconds).runOnce(() -> stopIndexing());
+    return Commands.runOnce(() -> startIndexing()).andThen(Commands.waitSeconds(seconds)).andThen(()-> stopIndexing());
   }
 
   @Override
