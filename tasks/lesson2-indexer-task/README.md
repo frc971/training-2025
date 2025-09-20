@@ -45,7 +45,7 @@ This should return a command that:
 
 - Bind `indexForSeconds(1.5)` to button 1 on the joystick
 
-## 4. Run and test in simulation
+## 4. Run and test in simu8lation
 
 - Start your robot in simulation. See the [WPILib Simulator](https://github.com/frc971/training-2025/wiki/WPILib-Simulator) page for help with simulation.
 - Switch to teleoperated mode
