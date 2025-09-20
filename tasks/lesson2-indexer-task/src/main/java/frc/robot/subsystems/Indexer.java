@@ -5,6 +5,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj2.command.*;
 
 public class Indexer extends SubsystemBase {
   // TODO: Add indexing state variable here
@@ -37,7 +38,7 @@ public class Indexer extends SubsystemBase {
 
   // TODO: Implement indexForSeconds() command factory
   public Command indexForSeconds(double seconds) {
-    return Commands.run(() -> startIndexing(), indexer).withTimeout(seconds).end(() -> stopIndexing(), indexer);
+    return Commands.run(() -> startIndexing()).withTimeout(seconds).end(() -> stopIndexing());
   }
 
   @Override
