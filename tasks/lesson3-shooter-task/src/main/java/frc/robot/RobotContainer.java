@@ -10,11 +10,11 @@ import frc.robot.subsystems.shooter.ShooterIOTalonFX;
 public class RobotContainer {
   private final CommandJoystick joystick = new CommandJoystick(0);
 
-  // private final Shooter shooter;
+  private final Shooter shooter;
 
   public RobotContainer() {
     // Use real or sim ShooterIO
-    // shooter = new Shooter(RobotBase.isReal() ? new ShooterIOTalonFX() : new ShooterIOSim());
+    shooter = new Shooter(RobotBase.isReal() ? new ShooterIOTalonFX() : new ShooterIOSim());
 
     configureBindings();
   }
@@ -28,5 +28,9 @@ public class RobotContainer {
         .whileTrue(Commands.run(() -> shooter.spin(0.5), shooter))
         .onFalse(Commands.run(() -> shooter.stop(), shooter));
     */
+    joystick
+      .button(1)
+      .whileTrue(Commands.run(() -> shooter.spin(0.5), shooter))
+      .onFalse(Commands.run(() -> shooter.stop(), shooter));
   }
 }
