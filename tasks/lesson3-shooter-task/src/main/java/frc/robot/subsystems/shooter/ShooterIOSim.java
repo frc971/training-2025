@@ -6,15 +6,16 @@ public class ShooterIOSim implements ShooterIO {
   private static final double MAX_RPM = 6000.0;
 
   // TODO: Add a private field `simulatedMotorPercent` to store the simulated motor percentage
-
+  private double simulatedMotorPercent;
   @Override
   public void updateInputs(ShooterIOInputs inputs) {
     // TODO: Simulate motorRPM by multiplying the stored simulatedMotorPercent by the max RPM
-    inputs.motorRPM = 0.0; // Placeholder - replace 0.0
+    inputs.motorRPM = simulatedMotorPercent * MAX_RPM; // Placeholder - replace 0.0
   }
 
   @Override
   public void setMotorPercentOutput(double percent) {
     // TODO: Store the given `percent` in your simulated motor percentage field
+    simulatedMotorPercent = percent;
   }
 }
