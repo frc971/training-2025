@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class Shooter extends SubsystemBase {
   // TODO: Add a private field for your ShooterIO instance
   // TODO: Add a private field for your ShooterIOInputs instance and initialize it
-  private ShooterIO = io;
+  private ShooterIO io;
 
   private ShooterIOInputs input = new ShooterIOIntputs();
   // TODO: Create the constructor that takes a ShooterIO instance as a parameter
