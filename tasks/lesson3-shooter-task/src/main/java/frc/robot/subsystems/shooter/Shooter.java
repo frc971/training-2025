@@ -3,6 +3,8 @@ package frc.robot.subsystems.shooter;
 import edu.wpi.first.wpilibj.RobotBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.subsystems.shooter.ShooterIO.ShooterIOInputs;
+import static edu.wpi.first.units.Units.RPM;
+import static edu.wpi.first.units.Units.Percent;
 
 // Main Shooter subsystem logic
 public class Shooter extends SubsystemBase {
@@ -11,7 +13,6 @@ public class Shooter extends SubsystemBase {
 
   // TODO: Add a private field for your ShooterIOInputs instance and initialize it
   private ShooterIO.ShooterIOInputs inputs = new ShooterIO.ShooterIOInputs();
-
 
   // TODO: Create the constructor that takes a ShooterIO instance as a parameter
   // public Shooter(ShooterIO io) { ... }
@@ -25,14 +26,7 @@ public class Shooter extends SubsystemBase {
     // This method will be called once per scheduler run
     // TODO: Call the updateInputs method on your ShooterIO instance
     io.updateInputs(inputs);
-    if (!RobotBase.isReal()) {
-        if (true) {
-            spin(0.5);
-        } else {
-            stop();
-        }}
-
-    System.out.println(inputs.motorRPM);
+    System.out.println("Current motor RPM: " + inputs.motorRPM);
   }
 
   // TODO: Add a public method to spin the shooter motor at a given percentage output

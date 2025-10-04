@@ -11,12 +11,10 @@ public class RobotContainer {
   private final CommandJoystick joystick = new CommandJoystick(0);
 
   private final Shooter shooter;
-
+  
   public RobotContainer() {
     // Use real or sim ShooterIO
     shooter = new Shooter(RobotBase.isReal() ? new ShooterIOTalonFX() : new ShooterIOSim());
-
-
     configureBindings();
   }
 
@@ -32,7 +30,7 @@ public class RobotContainer {
 
     joystick
       .button(1)
-      .whileTrue(Commands.run(() -> shooter.spin(1.0), shooter))
+      .whileTrue(Commands.run(() -> shooter.spin(0.5), shooter))
       .onFalse(Commands.run(() -> shooter.stop(), shooter));
     
     
