@@ -1,6 +1,7 @@
 package frc.robot.subsystems.shooter;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.subsystems.shooter.ShooterIO.ShooterIOInputs;
 
 // Main Shooter subsystem logic
 public class Shooter extends SubsystemBase {
@@ -8,7 +9,7 @@ public class Shooter extends SubsystemBase {
   // TODO: Add a private field for your ShooterIOInputs instance and initialize it
   private ShooterIO io;
 
-  private ShooterIOInputs input = new ShooterIOIntputs();
+  private ShooterIOInputs inputs = new ShooterIOInputs();
   // TODO: Create the constructor that takes a ShooterIO instance as a parameter
   // public Shooter(ShooterIO io) { ... }
   public Shooter(ShooterIO io) {
@@ -19,7 +20,7 @@ public class Shooter extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
     // TODO: Call the updateInputs method on your ShooterIO instance
-    ShooterIO.updateInputs();
+    io.updateInputs(inputs);
     System.out.println(inputs.motorRPM);
   }
 

@@ -36,6 +36,6 @@ public class ShooterIOTalonFX implements ShooterIO {
   public void setMotorPercentOutput(double percent) {
     // TODO: Use motor.setControl and the dutyCycleOut variable to set the motor’s percent output
     // Tip: Search up documentation for DutyCycleOut methods
-    motor.setMotorPercentOutput(percent);
+    motor.setControl(dutyCycleOut.withOutput(percent));
   }
 }
