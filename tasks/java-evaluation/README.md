@@ -90,4 +90,3 @@ javac *.java && java EvaluationTest
 
 Zip all of your Java code and submit the .zip file to the submission form attached to the training kickoff slides.
 
-If you already know git, you should also make a pull request for your solution. If not, wait until you finish [Lesson 1: Git and GitHub]([url](https://github.com/frc971/training-2025/wiki/Lesson-1:-Intro-to-Git-&-GitHub)).
